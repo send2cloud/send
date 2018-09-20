@@ -5,7 +5,6 @@ const download = require('./download');
 const footer = require('../templates/footer');
 const fxPromo = require('../templates/fxPromo');
 const signupPromo = require('../templates/signupPromo');
-const activeBackground = require('../templates/activeBackground');
 const fileList = require('../templates/fileList');
 const profile = require('../templates/userAccount');
 const modal = require('../templates/modal');
@@ -27,7 +26,7 @@ function modalDialog(state, emit) {
 
 function body(template) {
   return function(state, emit) {
-    const b = html`<body class="background ${activeBackground(state)}">
+    const b = html`<body class="background">
       ${modalDialog(state, emit)}
       ${banner(state, emit)}
       <main class="main">
@@ -45,19 +44,15 @@ function body(template) {
         ${signupPromo(state)}
         <div class="stripedBox">
           <div class="mainContent">
-
             ${profile(state, emit)}
-
             ${template(state, emit)}
           </div>
         </div>
-
-        <div class="spacer"></div>
         <div class="uploads">
           ${fileList(state)}
         </div>
+        ${footer(state)}
       </main>
-      ${footer(state)}
     </body>`;
     if (state.layout) {
       // server side only

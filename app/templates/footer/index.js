@@ -12,8 +12,15 @@ module.exports = function(state) {
       onmouseover=${showDropDown}
       onmouseout=${hideDropDown}>
 
+      <a href="${feedbackUrl}"
+        rel="noreferrer noopener"
+        class="feedback"
+        alt="Feedback"
+        target="_blank">${state.translate('siteFeedback')}
+      </a>
+
       <div class="legalSection__menu">
-        <img class="dropDownArrow" src="${assets.get('dropdown-arrow.svg')}"/> 
+        <img class="dropDownArrow" src="${assets.get('dropdown-arrow.svg')}"/>
         <a class="legalSection__link"
           href="https://www.mozilla.org/about/legal">
           ${state.translate('footerLinkLegal')}
@@ -51,13 +58,6 @@ module.exports = function(state) {
         Twitter
       </a>
     </div>
-
-    <a href="${feedbackUrl}"
-      rel="noreferrer noopener"
-      class="feedback"
-      alt="Feedback"
-      target="_blank">${state.translate('siteFeedback')}
-    </a>
 
     <a
       href="https://github.com/mozilla/send"
